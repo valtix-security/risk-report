@@ -13,7 +13,9 @@
   margin: 0px;
 }
 
-$section-headings-color: "black";
+.main-content h1, .main-content h2, .main-content h3 {
+  color: "black";
+}
 
 body {
   color: auto;

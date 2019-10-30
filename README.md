@@ -23,7 +23,7 @@ other resourced are getting created/destroyed. To enable inventory support, Valt
 cross-account IAM role that it can assume and collect the data.
 ## Create Cross-Account IAM Role
 1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **425355469185** and add an external id as **ValtixController**. (External ID can be anything that you wish to use)
-![Role1](screenshots/role00.png "Create new role with trusted party as another aws account")
+![Role1](screenshots/role-00.png "Create new role with trusted party as another aws account")
 
 1. Do not assign any permissions, a JSON policy is provided later in the document and the role will be edited to add this policy
 
@@ -32,7 +32,6 @@ cross-account IAM role that it can assume and collect the data.
 1. Select the role created above and in the Permissions tab click **Add inline policy** and select **JSON** in the policy editor
 
 ![Role2](screenshots/role-01.png "Edit role to add inline policy")
-
 ![Role3](screenshots/role-02.png "Open JSON editor")
 
 1. Copy the following policy in the editor

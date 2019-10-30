@@ -4,5 +4,9 @@
 @import "{{ site.theme }}";
 
 .page-header {
-padding: 1rem;
+  padding: 1rem;
+}
+
+.main-content {
+  max-width: auto
 }

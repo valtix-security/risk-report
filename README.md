@@ -7,11 +7,12 @@ For Valtix to generate a risk report, you need to do the following:
 1. Create an IAM Role that can be used by the Valtix Controller to get inventory details of your cloud account
 
 # Enabling VPC Flow Logs
-1. Create Flow Logs for the VPC with Filter *All* and Destination *Send to an S3 Bucket* with S3 Bucket ARN
-as *aws:arn:s3:::valtix-vpc-flow-logs*
-2. Show some screenshots here to do this.
-3. Once the traffic reaches the VPC, the logs are forwarded to the Valtix S3 Bucket that's provided.
-4. Valtix needs a minimum of 7 days worth of logs to generate report
+1. Create Flow Logs for your selected VPC with Filter **All** and Destination **Send to an S3 Bucket** with S3 Bucket ARN
+as **aws:arn:s3:::valtix-vpc-flow-logs**
+![VPC Selection]("screenshots/vpc-flow-logs-01.png" "Select VPC to Enable Flow Logs")
+![VPC Selection]("screenshots/vpc-flow-logs-02.png" "Send Logs to Valtix S3 Bucket")
+1. Once the traffic reaches your selected VPC, the logs are forwarded to the Valtix S3 Bucket that's provided.
+1. Valtix needs a minimum of 7 days worth of logs to generate report
 
 # Enabling Inventory support on the Valtix Controller
 VPC Flow logs provide the IP Addresses and Port numbers of the traffic that reach the VPC. To match those details

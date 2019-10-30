@@ -12,7 +12,7 @@ For Valtix to generate a risk report, you need to do the following:
     ![VPC Selection](screenshots/vpc-flow-logs-01.png "Select VPC to Enable Flow Logs")
 
 1. Create Flow Logs for your selected VPC with Filter **All** and Destination **Send to an S3 Bucket** with S3 Bucket ARN
-as **aws:arn:s3:::valtix-vpc-flow-logs**
+as **arn:aws:s3:::valtix-vpc-flow-logs**
 
      ![VPC Selection](screenshots/vpc-flow-logs-02.png "Send Logs to Valtix S3 Bucket")
      

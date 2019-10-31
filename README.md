@@ -15,8 +15,8 @@ Valtix security experts will walk you through the report, offer cloud security p
 
 # Requirements
 For Valtix to generate a risk report, you need to do the following:
-1. Enable VPC Flow Logs for all the VPCs running your applications and forward the logs to Valtix S3 Bucket.
-1. Create an IAM Role that can be used by the Valtix Controller to get inventory details of your cloud account. This is optional and can be done after you get the initial report. Inventory helps in identifying the traffic that's destined to the applications/load balancers/ec2-instances.
+1. Enable VPC Flow Logs for all the VPCs running your applications.
+1. Create a cross acount IAM Role that can be used by the Valtix Controller to connect to your AWS environment.
 
 # Enable VPC Flow Logs
 1. Select the VPC(s) to be assessed
@@ -31,14 +31,8 @@ as **arn:aws:s3:::ask-valtix-for-the-bucket-name**
 1. Once the traffic reaches your selected VPC, the logs are forwarded to the Valtix S3 Bucket that's provided.
 1. Valtix needs a minimum of 7 days worth of logs to generate report
 
-# Enable Inventory support on the Valtix Controller
-VPC Flow logs provide the IP Addresses and Port numbers of the traffic that reach the VPC. To match those details
-with the applications (Load Balancers, EC2 Instances) Valtix needs to get an inventory of your cloud. Inventory
-collection also helps to show the dynamism of your cloud infrastructure like how instances, load balancers and
-other resourced are getting created/destroyed. To enable inventory support, Valtix controller needs a
-cross-account IAM role that it can assume and collect the data, enable cloudtrail on your account and setup a CloudWatch Event Rule to send events to the event bus in another AWS account (Valtix AWS Account)
 
-## Create Cross-Account IAM Role
+# Create Cross-Account IAM Role
 1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **valtix-account-number** and add an external id as **ValtixCloudController**. (External ID can be anything that you wish to use)
 
     ![Role1](screenshots/role-00.png "Create new role with trusted party as another aws account")

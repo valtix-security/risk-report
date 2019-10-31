@@ -1,5 +1,16 @@
 # Valtix Cloud Assessment Risk Report
-Explain what this document does and how valtix can help provide a risk report for your cloud applications and infrastructure
+Welcome to the Valtix trial that will provide network and application insights to your Public Cloud.  Below are the details to help guide you through the easy setup.  Before jumping to that, here are a few house-keeping areas:
+
+* Initially, AWS is supported for North America based regions.  Azure is expected soon.
+* The assessment will include up to 2 AWS VPCs with support for more as needed and upon request.
+* Your trial will last for 14-days.  Valtix will provide the Valtix Cloud Assessment Risk Report based on 7-days of your data.
+* Valtix will collect your data and generate a short and simple report that highlights:
+    - Amount of encrypted traffic (bytes, sessions) - consider deep security inspection
+    - Cloud inventory dynamism - identifies ‘top talkers’ such as instances, apps, tags, more
+    - Traffic behavior - shows top/bottom ports used and what objects/tags they’re tied to.
+* Valtix security experts will walk you through the report, offer cloud security posture recommendations and get you to the next phase - a richer Valtix Security Platform experience to include the deployment of the Valtix Cloud Firewall.  This trial will give you ~30 days of full access to Discover (similar visibility), Deploy (get a firewall up and running in seconds) and Defend (configure your firewall with Valtix rich services - advanced firewall, IPS, WAF, TLS).
+
+******************************************************************************************************************************
 
 # Requirements
 For Valtix to generate a risk report, you need to do the following:

@@ -16,7 +16,7 @@ Valtix security experts will walk you through the report, offer cloud security p
 # Requirements
 For Valtix to generate a risk report, you need to do the following:
 1. Enable VPC Flow Logs for all the VPCs running your applications and forward the logs to Valtix S3 Bucket.
-1. Create an IAM Role that can be used by the Valtix Controller to get inventory details of your cloud account. This is optional and can be done after you get the initial report. Inventory helps in identifying the traffic that's destined to the applications/load balancers/ec2-instances. 
+1. Create an IAM Role that can be used by the Valtix Controller to get inventory details of your cloud account. This is optional and can be done after you get the initial report. Inventory helps in identifying the traffic that's destined to the applications/load balancers/ec2-instances.
 
 # Enable VPC Flow Logs
 1. Select the VPC(s) to be assessed
@@ -24,10 +24,10 @@ For Valtix to generate a risk report, you need to do the following:
     ![VPC Selection](screenshots/vpc-flow-logs-01.png "Select VPC to Enable Flow Logs")
 
 1. Create Flow Logs for your selected VPC with Filter **All** and Destination **Send to an S3 Bucket** with S3 Bucket ARN
-as **arn:aws:s3:::valtix-vpc-flow-logs**
+as **arn:aws:s3:::ask-valtix-for-the-bucket-name**
 
      ![VPC Selection](screenshots/vpc-flow-logs-02.png "Send Logs to Valtix S3 Bucket")
-     
+
 1. Once the traffic reaches your selected VPC, the logs are forwarded to the Valtix S3 Bucket that's provided.
 1. Valtix needs a minimum of 7 days worth of logs to generate report
 
@@ -35,11 +35,11 @@ as **arn:aws:s3:::valtix-vpc-flow-logs**
 VPC Flow logs provide the IP Addresses and Port numbers of the traffic that reach the VPC. To match those details
 with the applications (Load Balancers, EC2 Instances) Valtix needs to get an inventory of your cloud. Inventory
 collection also helps to show the dynamism of your cloud infrastructure like how instances, load balancers and
-other resourced are getting created/destroyed. To enable inventory support, Valtix controller needs a 
+other resourced are getting created/destroyed. To enable inventory support, Valtix controller needs a
 cross-account IAM role that it can assume and collect the data, enable cloudtrail on your account and setup a CloudWatch Event Rule to send events to the event bus in another AWS account (Valtix AWS Account)
 
 ## Create Cross-Account IAM Role
-1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **425355469185** and add an external id as **ValtixCloudController**. (External ID can be anything that you wish to use)
+1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **valtix-account-number** and add an external id as **ValtixCloudController**. (External ID can be anything that you wish to use)
 
     ![Role1](screenshots/role-00.png "Create new role with trusted party as another aws account")
 
@@ -50,8 +50,8 @@ cross-account IAM role that it can assume and collect the data, enable cloudtrai
 1. Select the role created above and in the Permissions tab click **Add inline policy** and select **JSON** in the policy editor
 
     ![Role2](screenshots/role-01.png "Edit role to add inline policy")
-    
-    ![Role3](screenshots/role-02.png "Open JSON editor") 
+
+    ![Role3](screenshots/role-02.png "Open JSON editor")
 
 1. Copy the following policy in the editor
 
@@ -91,7 +91,7 @@ cross-account IAM role that it can assume and collect the data, enable cloudtrai
       ]
     }
     ```
-1. **Add Target** and choose **Event bus in another AWS account** and add account id **425355469185**
+1. **Add Target** and choose **Event bus in another AWS account** and add account id **valtix-account-number**
 1. You can either create a new role or use an existing role that has permissions to publish events to the account specified above.
 1. In the next page, add a rule name and click **Create Rule**
 1. This configuration of the CloudWatch Event Rules enables inventory changes to be read by Valtix Cloud Controller and build inventory details.

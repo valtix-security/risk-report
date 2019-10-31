@@ -28,8 +28,7 @@ as **arn:aws:s3:::ask-valtix-for-the-bucket-name**
 
      ![VPC Selection](screenshots/vpc-flow-logs-02.png "Send Logs to Valtix S3 Bucket")
 
-1. Once the traffic reaches your selected VPC, the logs are forwarded to the Valtix S3 Bucket that's provided.
-1. Valtix needs a minimum of 7 days worth of logs to generate report
+
 
 
 # Create Cross-Account IAM Role

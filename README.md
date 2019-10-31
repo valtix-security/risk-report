@@ -18,7 +18,7 @@ For Valtix to generate a risk report, you need to do the following:
 1. Create an IAM Role that can be used by the Valtix Controller to get inventory details of your cloud account. This is optional and can be done after you get the initial report. Inventory helps in identifying the traffic that's destined to the applications/load balancers/ec2-instances. 
 
 # Enable VPC Flow Logs
-1. Select the VPC(s) for which you want assessment report
+1. Select the VPC(s) to be assessed
 
     ![VPC Selection](screenshots/vpc-flow-logs-01.png "Select VPC to Enable Flow Logs")
 
@@ -38,13 +38,13 @@ other resourced are getting created/destroyed. To enable inventory support, Valt
 cross-account IAM role that it can assume and collect the data, enable cloudtrail on your account and setup a CloudWatch Event Rule to send events to the event bus in another AWS account (Valtix AWS Account)
 
 ## Create Cross-Account IAM Role
-1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **425355469185** and add an external id as **ValtixController**. (External ID can be anything that you wish to use)
+1. Create a new IAM Role with trusted entity as **Another AWS Account**, Account ID as **425355469185** and add an external id as **ValtixCloudController**. (External ID can be anything that you wish to use)
 
     ![Role1](screenshots/role-00.png "Create new role with trusted party as another aws account")
 
 1. Do not assign any permissions, a JSON policy is provided later in the document and the role will be edited to add this policy
 
-1. Keep clicking next and provide a role name as **ValtixController** and finish creating the role.
+1. Keep clicking next and provide a role name as **ValtixCloudController** and finish creating the role.
 
 1. Select the role created above and in the Permissions tab click **Add inline policy** and select **JSON** in the policy editor
 
@@ -72,8 +72,8 @@ cross-account IAM role that it can assume and collect the data, enable cloudtrai
     }
     ```
 
-1. On the Valtix Controller, login with the username and password assigned to you, add AWS account with the IAM Role created above.
-1. Once the account is added, click the 3 bars next to the account name and then **Inventory**, select all the regions and save. This enables Valtix controller to start listening to the inventory changes in your account.
+1. On the Valtix Cloud Controller, login with the username and password assigned to you, add AWS account with the IAM Role created above.
+1. Once the account is added, click the 3 bars next to the account name and then **Inventory**, select all the regions and save. This enables the controller to start listening to the inventory changes in your account.
 1. On your cloud account, create a new Trail under CloudTrail and log the events to any of your S3 buckets.
 1. Go to **CloudWatch** > **Events** and add a new Rule
 1. Select **Event Pattern** and choose **Build Custom Event Pattern**
@@ -93,4 +93,4 @@ cross-account IAM role that it can assume and collect the data, enable cloudtrai
 1. **Add Target** and choose **Event bus in another AWS account** and add account id **425355469185**
 1. You can either create a new role or use an existing role that has permissions to publish events to the account specified above.
 1. In the next page, add a rule name and click **Create Rule**
-1. This configuration of the CloudWatch Event Rules enables inventory changes to be read by Valtix Controller and build inventory details.
+1. This configuration of the CloudWatch Event Rules enables inventory changes to be read by Valtix Cloud Controller and build inventory details.

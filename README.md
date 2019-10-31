@@ -8,7 +8,8 @@ Welcome to the Valtix trial that will provide network and application insights t
     - Amount of encrypted traffic (bytes, sessions) - consider deep security inspection
     - Cloud inventory dynamism - identifies ‘top talkers’ such as instances, apps, tags, more
     - Traffic behavior - shows top/bottom ports used and what objects/tags they’re tied to.
-* Valtix security experts will walk you through the report, offer cloud security posture recommendations and get you to the next phase - a richer Valtix Security Platform experience to include the deployment of the Valtix Cloud Firewall.  This trial will give you ~30 days of full access to Discover (similar visibility), Deploy (get a firewall up and running in seconds) and Defend (configure your firewall with Valtix rich services - advanced firewall, IPS, WAF, TLS).
+
+Valtix security experts will walk you through the report, offer cloud security posture recommendations and get you to the next phase - a richer Valtix Security Platform experience to include the deployment of the Valtix Cloud Firewall.  This trial will give you ~30 days of full access to Discover (similar visibility), Deploy (get a firewall up and running in seconds) and Defend (configure your firewall with Valtix rich services - advanced firewall, IPS, WAF, TLS).
 
 ******************************************************************************************************************************
 

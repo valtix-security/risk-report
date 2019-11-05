@@ -1,4 +1,4 @@
-# Valtix Cloud Assessment Risk Report
+# Valtix Cloud Risk Assessment
 Welcome to the Valtix trial that will provide network and application insights to your Public Cloud.  Below are the details to help guide you through the easy setup.  Before jumping to that, here are a few house-keeping areas:
 
 * Initially, AWS is supported for North America based regions.  Azure is expected soon.
